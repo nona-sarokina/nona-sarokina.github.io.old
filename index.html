@@ -1,11 +1,37 @@
 <html>
-  <head>
+<head>
     <meta charset="UTF-8"/>
-    <script src="https://code.jquery.com/jquery-latest.min.js"></script>
-    <script src="main.js"></script>
-  </head>
-  <body>
-    <div id="container">
+</head>
+<body ng-app="chart" class="ng-scope">
+
+
+<div id="container" class="container">
+    <div class="row" ng-controller="BarCtrl">
+        <div class="col-lg-8 col-sm-12" >
+            <div class="panel panel-default">
+                <div class="panel-heading">Rank chart</div>
+                <div class="panel-body">
+                    <canvas class="chart chart-horizontal-bar" height="1000" chart-data="data" chart-labels="labels"
+                            chart-options="options" chart-series="series"></canvas>
+                </div>
+            </div>
+        </div>
+        <div class="col-lg-4 col-sm-12" >
+            <ul class="list-group">
+                <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="player in players">
+                    <input type="checkbox" ng-click="updateChart(player)" check-list="selectedPlayers" />{{player.name}} <span class="badge badge-primary badge-pill">{{player.total_points}}</span>
+                </li>
+            </ul>
+        </div>
     </div>
-  </body>
+</div>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.2.4/jquery.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/js/bootstrap.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.2.1/Chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.6.7/angular.min.js"></script>
+<script src="https://cdn.jsdelivr.net/angular.chartjs/latest/angular-chart.js"></script>
+<link href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.7/css/bootstrap.css" rel="stylesheet"/>
+<script src="js/chart.js" charset="utf-8"></script>
+</body>
 </html>
