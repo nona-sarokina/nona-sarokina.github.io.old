@@ -17,14 +17,25 @@
 
 <div id="container" class="container">
     <div class="row" ng-controller="BarCtrl">
-        <div class="col-lg-4 col-sm-12" id="players" >
-            <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="player in players | orderBy:'-total_points'">
-                    <input type="checkbox" ng-click="updateChart(player)" check-list="selectedPlayers" />{{player.name}} <span class="badge badge-primary badge-pill">{{player.total_points}}</span>
-                </li>
-            </ul>
+        <div class="col-lg-4 col-sm-12" id="players">
+            <table  class="table table-striped table-bordered" >
+                <thead>
+                <tr>
+                    <td></td>
+                    <td>Name</td>
+                    <td>Total</td>
+                </tr>
+                </thead>
+                <tbody>
+                <tr ng-repeat="player in players | orderBy:'-total_points'">
+                    <td><input type="checkbox" ng-click="updateChart(player)" check-list="selectedPlayers"/></td>
+                    <td>{{player.name}}</td>
+                    <td><span class="badge badge-primary badge-pill">{{player.total_points}}</span></td>
+                </tr>
+                </tbody>
+            </table>
         </div>
-        <div class="col-lg-8 col-sm-12" id="chart" >
+        <div class="col-lg-8 col-sm-12" id="chart">
             <div class="panel panel-default">
                 <div class="panel-heading">Rank chart</div>
                 <div class="panel-body">
