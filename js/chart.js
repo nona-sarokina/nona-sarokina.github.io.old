@@ -38,12 +38,11 @@
                     angular.forEach(value.games, function (value, key) {
 
                         var game = value;
-                        if (game.rank > 0)
-                        {
-                            game.number = key;
-                            game.playerName = playerName;
-                            games.push(game);
-                        }
+
+                        game.number = key;
+                        game.playerName = playerName;
+                        games.push(game);
+
 
                     });
                     games.sort(function (a, b) {
