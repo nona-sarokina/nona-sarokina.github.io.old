@@ -11,14 +11,14 @@
             <div class="panel panel-default">
                 <div class="panel-heading">Rank chart</div>
                 <div class="panel-body">
-                    <canvas class="chart chart-horizontal-bar" height="1000" chart-data="data" chart-labels="labels"
+                    <canvas class="chart chart-horizontal-bar" height="500" chart-data="data" chart-labels="labels"
                             chart-options="options" chart-series="series"></canvas>
                 </div>
             </div>
         </div>
         <div class="col-lg-4 col-sm-12" >
             <ul class="list-group">
-                <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="player in players">
+                <li class="list-group-item d-flex justify-content-between align-items-center" ng-repeat="player in players | orderBy:'-total_points'">
                     <input type="checkbox" ng-click="updateChart(player)" check-list="selectedPlayers" />{{player.name}} <span class="badge badge-primary badge-pill">{{player.total_points}}</span>
                 </li>
             </ul>

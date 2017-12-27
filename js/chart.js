@@ -36,10 +36,15 @@
                     $scope.series.push(playerName);
 
                     angular.forEach(value.games, function (value, key) {
+
                         var game = value;
-                        game.number = key;
-                        game.playerName = playerName;
-                        games.push(game);
+                        if (game.rank > 0)
+                        {
+                            game.number = key;
+                            game.playerName = playerName;
+                            games.push(game);
+                        }
+
                     });
                     games.sort(function (a, b) {
                         return a.number - b.number;
@@ -56,7 +61,7 @@
                 });
             }
 
-            function addData() {
+            function addData(games) {
                 angular.forEach($scope.series, function (player, key) {
                     var currentPlayerData = [];
                     angular.forEach(games, function (value, key) {
